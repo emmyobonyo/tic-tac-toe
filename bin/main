@@ -7,7 +7,7 @@ module GetPlayerInformation
   while is_string_empty
     PLAYER_1 = gets.chomp
     if PLAYER_1.strip.empty?
-      puts "Please enter a valid name"
+      puts 'Please enter a valid name'
     else
       is_string_empty = false
     end
