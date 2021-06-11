@@ -1,24 +1,31 @@
 #!/usr/bin/env ruby
-def getting_player_information
+module GetPlayerInformation
   puts "Welcome to Ruby's Tic-Tac-Toe"
   puts "\n"
-  puts "Enter Player 1 name:"
-  player1 = gets.chomp
+  puts 'Enter Player 1 name:'
+  PLAYER_1 = gets.chomp
   puts "\n"
-  puts "Enter Player 2 name:"
-  player2 = gets.chomp
+  puts 'Enter Player 2 name:'
+  PLAYER_2 = gets.chomp
   puts "\n"
-  puts "#{player1} will play with X and #{player2} will play with O"
-
-  players = [player1, player2]
-
-  i = 0
-  r = 0
-  while i < 10 do #This loop will go on until someone wins the game. 10 is just a dummy figure right now.
-    puts "its #{players[r]}'s turn to play"
-    r == 1 ? r = 0 : r+=1
-    i+=1
-  end
+  puts "#{PLAYER_1} will play with X and #{PLAYER_1} will play with O"
 end
 
-getting_player_information()
+class GamePlay
+  include GetPlayerInformation
+  players = [PLAYER_1, PLAYER_2]
+  i = 0
+  r = 0
+  player0_numbers_chosen = []
+  player1_numbers_chosen = []
+  while i < 9
+    puts "its #{players[r]}'s turn to play"
+    puts "\n"
+    puts 'Enter a number that has not yet been chosen:'
+    puts "\n"
+    input_number = gets.chomp
+    r.zero ? player0_numbers_chosen.push(input_number) : player1_numbers_chosen.push(input_number)
+    r == 1 ? r = 0 : r += 1
+    i += 1
+  end
+end
